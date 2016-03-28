@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- declares this is an html5 page -->
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title>Image Gallery using Bootstrap</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+</head>
+
+<body ng-controller="myController">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <img class="img-thumbnail" src="images/DSC02811.JPG" style="width:35%; display:block; margin:auto;">
+                <h2>Image Gallery w/Angular</h2>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div ng-repeat="img in images" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" ng-init="count=0">
+                    <img class="img-thumbnail" ng-src="{{img.src}}" name="{{img.name}}" ng-mouseenter="swapImage($index)" />
+                </div>
+            </div>
+            Count: {{count}}
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <img name="preview" src="images/image1.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
